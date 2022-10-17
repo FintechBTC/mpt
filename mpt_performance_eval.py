@@ -3,9 +3,8 @@ import numpy as np
 
 # constants being used for this module
 num_mc_runs = 500
-num_mc_years = 5
 initial_test_investment = 10000.00
-historical_days_percent = 0.75
+historical_days_percent = 0.80
 test_days_percent = 1 - historical_days_percent
 
 ####################################################################

@@ -5,24 +5,23 @@ from pathlib import Path
 # constants being used for this module
 num_trading_days = 252
 risk_free_rate = 0.02
-num_random_portfolio_run = 10000
+num_random_portfolio_run = 50000
 rolling_window_days = 20
 
 ####################################################################
 # Get asset prices from .csv files
 ####################################################################
 def mpt_qa_get_asset_prices_csv(filename):
-    asset_prices_df = pd.read_csv(
+    asset_prices_all_symbols_df = pd.read_csv(
         Path(filename), 
         index_col="Date", 
         parse_dates=True, 
         infer_datetime_format=True
     )
 
-    #TEMP CODE UNTIL GET REAL MAKRKET DATA - USE CISOO AS MARKET
-    asset_prices_df.insert(loc = 0, column = 'market', value = asset_prices_df['cisco'])
-    asset_prices_df.drop(['cisco'], axis=1, inplace=True)
-    
+    symbols_sel = ["MARKET","MSFT","AAPL","IBM","JPM","INTC"]
+    asset_prices_df = asset_prices_all_symbols_df[symbols_sel]
+
     return asset_prices_df
 
 ####################################################################
@@ -31,7 +30,8 @@ def mpt_qa_get_asset_prices_csv(filename):
 def mpt_qa_compute_freq_stats(asset_prices_df):
     
     # Compute the asset returns
-    asset_prices_returns_df = asset_prices_df.pct_change().dropna()
+    #asset_prices_returns_df = asset_prices_df.pct_change().dropna()
+    asset_prices_returns_df = pd.DataFrame(np.log(asset_prices_df / asset_prices_df.shift(1))).dropna()
     # Compute the annual average asset returns
     asset_prices_ann_returns_mean = asset_prices_returns_df.mean() * num_trading_days
     # Compute the standard deviation of the assets   
@@ -135,7 +135,7 @@ def mpt_qa_get_efficient_frontier(asset_prices_df, asset_prices_ann_returns_mean
 ####################################################################
 def mpt_qa_return_portfolio_allocations(efficient_frontier_df):
     portfolio_min_volatility = efficient_frontier_df.iloc[efficient_frontier_df.loc[:,'Volatility'].idxmin()]
-    portfolio_max_volatility = efficient_frontier_df.iloc[efficient_frontier_df.loc[:,'Volatility'].idxmax()]
+    portfolio_max_volatility = efficient_frontier_df.iloc[efficient_frontier_df.loc[:,'Returns'].idxmax()]
     portfolio_opt_sharpe_ratio = efficient_frontier_df.iloc[efficient_frontier_df.loc[:,'SharpeRatio'].idxmax()]
     
     return portfolio_min_volatility, portfolio_max_volatility, portfolio_opt_sharpe_ratio
