@@ -19,10 +19,10 @@ def mpt_qa_get_asset_prices_csv(filename):
         infer_datetime_format=True
     )
 
-    symbols_sel = ["MARKET","MSFT","AAPL","IBM","JPM","INTC"]
-    asset_prices_df = asset_prices_all_symbols_df[symbols_sel]
+    #symbols_sel = ["MARKET","MSFT","AAPL","IBM","JPM","INTC"]
+    #asset_prices_df = asset_prices_all_symbols_df[symbols_sel]
 
-    return asset_prices_df
+    return asset_prices_all_symbols_df
 
 ####################################################################
 # Compute the frequency components on asset prices
