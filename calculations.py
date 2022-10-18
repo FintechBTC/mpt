@@ -21,7 +21,6 @@ class MPTCalculations:
     mpt_pe_get_portfolio_weights_df(portfolio_volatility)
     mpt_pe_get_mc_porfolio_df(asset_prices_df)
     mpt_pe_get_mc_weights(portfolio_weights)
-    mpt_pe_get_mc_porfolio_df(asset_prices_df)
     mpt_pe_compute_investment_pnl(initial_test_investment, asset_prices_test_beg_df, asset_prices_test_end_df, portfolio_weights_df)
 
     """
@@ -69,7 +68,7 @@ class MPTCalculations:
 
     def mpt_pe_get_mc_porfolio_df(asset_prices_df):
         """
-        Arrange Monte Carlo dataframe to have tuples for column names as required by the MCForecastTools
+        Arrange Monte-Carlo dataframe to have tuples for column names as required by the MCForecastTools
         Arguments:
             asset_prices_df
         Returns:
@@ -89,7 +88,7 @@ class MPTCalculations:
 
     def mpt_pe_get_mc_weights(portfolio_weights):
         """
-        Arrange Monte Carlo dataframe weights list as required by the MCForecastTools
+        Arrange Monte-Carlo dataframe weights list as required by the MCForecastTools
         Arguments:
             portfolio_weights 
         Returns:
@@ -108,7 +107,7 @@ class MPTCalculations:
         
     def mpt_pe_compute_investment_pnl(initial_test_investment, asset_prices_test_beg_df, asset_prices_test_end_df, portfolio_weights_df):
         """
-        Computes PNL on an initial investment of a portfolio
+        Compute PNL on an initial investment of a portfolio
         Arguments:
             initial_test_investment
             asset_prices_test_beg_df
