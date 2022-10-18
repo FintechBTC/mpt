@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import pandas as pd
 import yfinance as yf
@@ -26,6 +27,7 @@ class DataCollection:
     --------
     get_raw_data(basket_list, start, end)
     sqlite_data(stock_data)
+    save_data(raw_data)
 
     """
 
@@ -38,7 +40,7 @@ class DataCollection:
 
     def get_raw_data(basket_list, start, end):
         """
-        Fetches raw data from Yahoo Finance API
+        Fetch raw data from Yahoo Finance API
         Arguments:        
             basket_list: 
             start: 
@@ -46,15 +48,36 @@ class DataCollection:
         Returns:
             stock_data
             raw_data
-        """
+        """       
         stocks = basket_list
         raw_data = pdr.get_data_yahoo(stocks, start, end)
+
+        # Save raw_data locally for reference
+        DataCollection.save_data(raw_data)
         stock_data = raw_data['Close']
         return stock_data, raw_data
 
+    
+    def save_data(raw_data):
+        """
+        Save raw data into a local csv copy
+        Arguments:        
+            raw_data
+        Returns:
+            Nothing
+        """
+        
+        # Check to see if data directory has raw data csv, else download from Yahoo Finance API
+        if os.path.exists('data/raw_frame_close.csv') == True:
+                os.remove('data/raw_frame_close.csv')
+                raw_data.to_csv('data/raw_frame_close.csv')
+        else:
+                raw_data.to_csv('data/raw_frame_close.csv')
+    
+
     def sqlite_data(stock_data):
         """
-        Fetch SQLite data ot of raw stock_data
+        Fetch SQLite data out of raw stock_data
         Arguments:        
             stock_data
         Returns:
