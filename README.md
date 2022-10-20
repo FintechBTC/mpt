@@ -59,7 +59,7 @@ From the Git Bash terminal, make sure to 'activate conda' and appropriate virtua
 
 Then, browse to **mpt.ipynb** starter code file to run the program. See the image below for a quick hint.
 
-![Jupyter Notebook](Images/app_usage.png)
+![Jupyter Notebook](images/app_usage.png)
 
 **Note:** 
 
