@@ -1,8 +1,12 @@
 # Modern Portfolio Theory Based Portfolio Analysis and Optimization
 
-The project is about the **Modern Portfolio Theory (MPT)** based analysis and optimization of a given portfolio’s returns based on individual investors’ risk tolerance. The project is based on an assumption of a real world utility of **Modern Portfolio Theory (MPT)** for a Portfolio Manager, for example.
+The project is about the **Modern Portfolio Theory (MPT)** based analysis and optimization of a given portfolio’s returns based on individual investors’ risk tolerance. It assumes it has a use case in a real world utility for business roles like a Portfolio Manager or Quantitative Analyst in any Fintech firm.
 
-**Assume**:
+The project tries to solve a typical business problem of a Portfolio Manager to find an optimal construction of an investment portfolio.
+
+Let's take a business scenario as described below.
+
+**User Story**:
 
 As a Portfolio Manager of a Fintech firm, he/she should be able to:
 - Construct a portfolio of assets based on market index to maximize profit returns.
@@ -33,10 +37,6 @@ This project leverages python 3.7.* with the following additional packages:
 * [Jupyter Notebook](https://jupyter.org/) - The main module of the Financial Planner is written in Jupyter Notebook.
 * [Conda](https://docs.conda.io/projects/conda/en/latest/) - Conda environment is recommended to have Pandas library and other dependencies pre-installed.
 
-**Required Framework:**
-
-- [??](??) - ??.
-
 **Required Libraries:**
 
 You may need the following libraries to work with the application.
@@ -62,7 +62,10 @@ Then, browse to **mpt.ipynb** starter code file to run the program. See the imag
 
 ![Jupyter Notebook](images/app_usage.png)
 
-**Note:** 
+**Note:**
+
+- The results of data and portfolio analysis are stored in **images/** folder for reference when the project was unit tested.
+- Each time you run the **mpt.ipynb**, the raw data from Yahoo! Finance API will be stored in **data/raw_frame_close.csv** file.
 
 ## Contributors
 Peers of FinTech Blended Boot Camp, Columbia Engineering (2022-23 Batch)
