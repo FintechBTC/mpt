@@ -80,4 +80,4 @@ Peers of FinTech Blended Boot Camp, Columbia Engineering (2022-23 Batch)
 
 ## License
 
-None
+MIT
