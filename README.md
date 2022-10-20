@@ -1,8 +1,9 @@
-# Modern Portfolio Theory Based Portfolio Optimization and Analysis
+# Modern Portfolio Theory Based Portfolio Analysis and Optimization
 
 The project is about the **Modern Portfolio Theory (MPT)** based analysis and optimization of a given portfolio’s returns based on individual investors’ risk tolerance. The project is based on an assumption of a real world utility of **Modern Portfolio Theory (MPT)** for a Portfolio Manager, for example.
 
 **Assume**:
+
 As a Portfolio Manager of a Fintech firm, he/she should be able to:
 - Construct a portfolio of assets based on market index to maximize profit returns.
 - Identify the optimal weights or mix (percentage of investment) of constituent assets such that risk can be minimized.
@@ -66,7 +67,7 @@ Then, browse to **mpt.ipynb** starter code file to run the program. See the imag
 ## Contributors
 Peers of FinTech Blended Boot Camp, Columbia Engineering (2022-23 Batch)
 
-- [Conyea, Will]()
+- [Conyea, Will](https://github.com/willkanye)
 - [Gavnoudias, Stratis](https://github.com/sgavnoudias)
 - [Huang, Yan](https://github.com/Shiroyana)
 - [Mandal, Dinesh](https://github.com/dinesh-m)
